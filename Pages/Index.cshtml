@@ -1,0 +1,28 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "IP";
+}
+
+IP: @Model.ClientIpAddress
+
+
+<h1>All Headers</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Header</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var header in Model.Headers)
+        {
+            <tr>
+                <td>@header.Key</td>
+                <td>@header.Value</td>
+            </tr>
+        }
+    </tbody>
+</table>
