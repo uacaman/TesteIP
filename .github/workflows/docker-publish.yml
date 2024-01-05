@@ -77,7 +77,7 @@ jobs:
         tags: ghcr.io/uacaman/teste-ip:latest,ghcr.io/uacaman/teste-ip:${{ steps.date.outputs.date }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
-        file: ./src/TesteIP/Dockerfile
+        file: ./Dockerfile
       
     - name: curl
       uses: wei/curl@v1
