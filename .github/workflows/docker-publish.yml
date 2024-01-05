@@ -56,6 +56,16 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Find Dockerfile
+      run: |
+        # Replace 'your_dockerfile_name' with the actual name of your Dockerfile
+        dockerfile_path=$(find . -type f -name "Dockerfile" | head -n 1)
+        if [ -z "$dockerfile_path" ]; then
+          echo "Dockerfile not found."
+        else
+          echo "Dockerfile found at: $dockerfile_path"
+        fi
+        
     # Build and push Docker image with Buildx (don't push on PR)
     # https://github.com/docker/build-push-action
     - name: Build and push Docker image
